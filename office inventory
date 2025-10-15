@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+public class InventoryManagement
+{
+    public static void Main(string[] args)
+    {
+        List<string> inventoryList = new List<string>()
+        {
+            "printer",
+            "laptop",
+            "desk chair",
+            "monitor",
+            "keyboard"
+        };
+
+        Console.WriteLine("total inventory: " + inventoryList.Count);
+        bool hasDeskChair = inventoryList.Contains("desk chair");
+        Console.WriteLine(hasDeskChair);
+        bool removed = inventoryList.Remove("printer");
+        Console.WriteLine(removed);
+       Console.WriteLine("updated inventory list:");
+        foreach (string item in inventoryList)
+        {
+            Console.WriteLine(item);
+        }
+        List<string> newItems = new List<string>() { "Mouse", "Desk Lamp" };
+        inventoryList.AddRange(newItems);
+        inventoryList.RemoveAt(inventoryList.Count - 1);
+        inventoryList.RemoveAt(inventoryList.Count - 1);
+        List<string> topInventory = inventoryList.GetRange(0, 3);
+        Console.WriteLine("top 3 inventory items:");
+        foreach (string item in topInventory)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
